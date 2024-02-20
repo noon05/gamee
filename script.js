@@ -48,15 +48,17 @@ $(document).ready(function() {
             });
         }, 50);
 
-        apple.on('mousedown', function() {
-            var audio = new Audio('catch.wav');
-            audio.play();
-            apple.remove();
-            apples.splice(apples.findIndex(a => a.element.is(apple)), 1); // Удаляем яблоко из массива
-            score += 1; // Увеличиваем счет на 1 при пойманном яблоке
-            updateScore(); // Обновляем счет на странице
+       appleData.element.css({ transform: `translateY(${appleTop + appleData.speed}px)` });
+
+        // Добавьте event listener для touchstart события на месте события mousedown
+        apple.on('mousedown touchstart', function(event) {
+          var audio = new Audio('catch.wav');
+          audio.play();
+          apple.remove();
+          apples.splice(apples.findIndex(a => a.element.is(apple)), 1);
+          score += 1;
+          updateScore();
         });
-    }
 
     // Функция для спавна яблок с заданным интервалом
     function spawnApplesInterval(interval) {
