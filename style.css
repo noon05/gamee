@@ -23,15 +23,18 @@ body {
     font-weight: bold;
 }
 .apple {
-    width: 40px;
-    height: 40px;
-    background-image: url('apple.png');
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: top 1s, left 1s;
+ 
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-image: url('apple.png');
+  background-size: cover;
+  top: 0;
+  left: 0;
+
+  transition: left 1s;
 }
+
 
 .tree {
     width: 300px;
